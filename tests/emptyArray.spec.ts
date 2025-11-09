@@ -10,7 +10,7 @@ const prepareEnv = async (request: APIRequestContext): Promise<void> => {
         await request.delete(`${baseURLWithEndpoint}/${users[i].id}`);
     }
 };
-test('Empty users case', async ({ request }) => {
+test('should return empty array when no users @empty', async ({ request }) => {
     await prepareEnv(request);
     const response = await request.get(`${baseURLWithEndpoint}`);
     expect(response.status()).toBe(StatusCodes.OK)
